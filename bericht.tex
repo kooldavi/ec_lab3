@@ -1,7 +1,7 @@
 \section{Bericht}
 
 \subsection{Einleitung}
-In diesem Versuch haben wir vor, die in Lab 2 errechneten Werte für den PID-Regler in den vorhandenen Code einzufügen und so ein funktionierendes System zu erlangen. Zusätzlich müssen wir die Werte für $MIDPOS$ und $DELTA$ berechnet werden und den Willkommenstext auf der LCD-Anzeige geändert werden.
+Ziel dieses Versuchs ist es die in $Versuch\ 2$ errechneten Werte für den PID-Regler in den vorhandenen Quellcode einzufügen und so ein funktionierendes System zu erlangen. Zusätzlich müssen wir die Werte für $MIDPOS$ und $DELTA$ berechnet werden und den Willkommenstext auf der LCD-Anzeige geändert werden. 
 
 \subsubsection{Verwendung von OCR3A}
 OCR3A ist das Timer Output Compare Register, ...\\
@@ -10,16 +10,16 @@ OCR3A ist das Timer Output Compare Register, ...\\
 \subsubsection{Berechnung von MIDPOS}
 Der richtige MIDPOS Wert gibt an, wann die Fläche vollkommen horizontal steht. Zur Berechnung von MIDPOS benutzten wir folgende Formel: \\
 \begin{equation}
-MIDPOS  = Frequenz / Prescaler / 1000 * Pulslaenge
+MIDPOS  = Frequenz / Prescaler / 1000 \cdot Pulslaenge
 \end{equation}
-Die Frequenz ist mit $16 Mhz$ gegeben. Der Prescaler-Wert ist auf den Wert $0b00000011$ am Port $TCCR3B$ gesetzt. Mit Hilfe des Datenblattes kann diese Bitfolge auf den Wert $64$ dekodiert werden (...). Die Pulslänge der PWM für eine horizontaler Lage ist in der Aufgabenstellung erwähnt und liegt bei $1,5 ms$.\\
-Das Ergebnis unserer Berechnung ergibt $MIDPOS = 375$. Allerdings ist die Fläche nach dem Sertzen von $MIDPOS$ auf den errechneten Wert nicht vollständig horizontal. Der Wer muss auf $MIDPOS = 355$ angepasst werden, damit unser Modell in der Waage ist. \\ 
-Zu beachten ist, dass der Wert von $MIDPOS$ eventuell vor jeder Versuchsdurchführung neu angepasst werden muss, um zum Beispiel ein Schifstehen des Tisches oder ähnliches auszugleichen.
+Die Frequenz ist mit $16 Mhz$ gegeben. Der Prescaler-Wert ist im Register $TCCR3B$ auf den Wert $0b00000011$ gesetzt. Mit Hilfe des Datenblatts\footnote{http://www.atmel.com/Images/doc2467.pdf} kann diese Bitfolge auf den Wert $64$ dekodiert werden. Die Pulslänge der PWM für eine horizontaler Lage ist in der Aufgabenstellung erwähnt und liegt bei $1,5 ms$.\\
+Das Ergebnis unserer Berechnung ergibt $MIDPOS = 375$. Allerdings ist die Fläche nach dem Setzen von $MIDPOS$ auf den errechneten Wert nicht vollständig horizontal. Der Wert muss auf $MIDPOS = 355$ angepasst werden, damit unser Modell in der Waage ist. \\ 
+Zu beachten ist, dass der Wert von $MIDPOS$ eventuell vor jeder Versuchsdurchführung neu angepasst werden muss, um zum Beispiel ein Schiefstehen des Tisches oder ähnliches auszugleichen.
 
 \subsubsection{Berechnung von DELTA}
-$DELTA$ ist die Differenz zwischen der maximalen linken oder rechten Position der Fläche und der mittleren Position ($MIDPOS$). Für die Berechnung des Wertes von $DELTA$ verwenden wir die folgende Formel:
+$DELTA$ ist die Differenz zwischen der maximalen linken oder rechten Position der Fläche und der mittleren Position ($MIDPOS$). Für die Berechnung des Wertes von $DELTA$ verwenden wir die folgende Formel
 \begin{equation}
-DELTA = (Frequenz / Prescaler / 1000 * Pulslaenge) - MIDPOS
+DELTA = (Frequenz / Prescaler / 1000 \cdot Pulslaenge) - MIDPOS
 \end{equation}
 Für den Wert der Pulslänge muss diesmal allerdings $2 ms$ verwendet werden, da wir den Wert für die maximale rechte Position der Fläche benötigten. Von diesem Wert ziehen wir $MIDPOS$ ab, um die Differenz zu erhalten. Nun müssen wir wieder den Wert leicht anpassen und kommen auf das Ergebnis $DELTA = 125$.
 
@@ -29,18 +29,18 @@ Die Willkommensnachricht auf der LCD Anzeige ist in der Datei $HMI.c$ in Zeile 2
 \subsubsection{PID Implementation}
 Die Implementierung des PID-Reglers erfolgt in der Datei $PID.c$. Wir verwenden folgende Summenformel für den PID-Regler:
 \begin{multline}
-y = (proportional * error) + (integral * errorSum * sampleTime) + \\
-(derivative * (error * errorLast) / sampleTime)
+y = (proportional \cdot error) + (integral \cdot errorSum \cdot sampleTime) + \\
+(derivative \cdot (error \cdot errorLast) / sampleTime)
 \end{multline}
 Die Werte für $proportional$, $integral$ und $derivative$ sind die Faktoren für den P-, I- und D-Teil des Reglers. $error$ beschreibt den aktuellen Fehler (Sollwert - Istwert). $errorSum$ ist die Summer aller bisherigen Fehler. $errorLast$ beschreibt den letzten Fehler (nicht den aktuellen). \\
 Die $sampleTime$ haben wir auf $18 ms$ ($0,018s$) gesetzt, da die Ansteuerung des Servo-Motors alle $18 ms$ erfolgt. \\
-Im $Versuch 2$ haben wir den PID-Regler simuliert. Leider können die Werte aus der Simulation nicht übernommen werden. Ein Grund dafür ist, dass in der Simulation ein kontinuierlicher PID simuliert wird, wir am Modell jedoch einen diskreten PID vorfinden. Außerdem werden in der Simulation Einflüsse wie zum Beispiel die nicht perfekte Rundheit des Balls, die Trägheit des Servo-Motors und so weiter ignoriert. \\
+Im $Versuch\ 2$ haben wir den PID-Regler simuliert. Leider können die Werte aus der Simulation nicht übernommen werden. Ein Grund dafür ist, dass in der Simulation ein kontinuierlicher PID simuliert wird, wir am Modell jedoch einen diskreten PID vorfinden. Außerdem werden in der Simulation Einflüsse wie zum Beispiel die nicht perfekte Rundheit des Balls, die Trägheit des Servo-Motors und so weiter ignoriert. \\
 Nach längerem Kalibrieren kommen wir auf folgende Werte: \\
 $proportional = 0,19$, $integral =0,018$ und $derivative = 0,51$
 
 
 \subsubsection{Vergleich der Ergebnisse mit Versuch 2}
-Im Vergleich zu Versuch 2 benötigten wir beim eigentlichen Modell vollkommen andere PID-Werte. Ein möglicher Grund dafür ist, dass wir in Versuch 2 ein kontinuierliches System simuliert haben, in Versuch 3 aber mit einem diskreten System arbeiten haben. Der Unterschied ist, dass bei einem diskreten PID die $sampleTime$, also eine Verzögerungszeit mit eingerechnet werden muss. Dadurch ändert sich die Formel des Reglers.\\
+Im Vergleich zu $Versuch\ 2$ benötigten wir beim eigentlichen Modell vollkommen andere PID-Werte. Ein möglicher Grund dafür ist, dass wir in Versuch 2 ein kontinuierliches System simuliert haben, in Versuch 3 aber mit einem diskreten System arbeiten haben. Der Unterschied ist, dass bei einem diskreten PID die $sampleTime$, also eine Verzögerungszeit mit eingerechnet werden muss. Dadurch ändert sich die Formel des Reglers.\\
 Außerdem werden, wie oben schon genannt, äußere Einflüsse ignoriert (Rundheit des Balls, Trägheit des Motors, etc).
 
 \subsubsection{Queues und Tasks}
@@ -73,4 +73,6 @@ Dieser Task holt sich die aktuelle Ballposition aus $QueueSensor$ und berechnet 
 Mit unseren aktualisierten PID-Werten ist es uns gelungen den Ball in weniger als zehn Sekunden an der gewünschten Stelle stehen bleiben zu lassen.\\
 
 \subsection{Fazit}
-\textcolor{red}{TODO}
+Der Unterschied von der Simulation aus $Versuch\ 2$ zum tatsächlichen Modell in $Versuch\ 3$ ist sehr enorm. Allerdings haben wir ein kontinuierliches System modelliert und ein diskretes System im Modell vorgefunden. Alleine dieser Unterschied führt schon zu sehr unterschiedlichen Parametern des PID-Reglers. In der Simulation hätten wir dieses Problem erkennen und modellieren können. \\
+Die äußeren Einflüsse auf das Modell sind allerdings nur sehr schwer zu modellieren. Man sollte sich immer bewusst sein, dass eine Simulation nicht zu 100 Prozent dem Modell entspricht und es vermutlich immer Abweichungen geben wird. \\
+Nichtsdestotrotz hat uns die Versuchsreihe sehr viel Spass gemacht und es ist ein gutes Gefühl, wenn der Ball am Ende auf der gewünschten Position liegen bleit.
