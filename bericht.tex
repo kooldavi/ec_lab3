@@ -4,11 +4,15 @@
 Ziel dieses Versuchs ist es die in $Versuch\ 2$ errechneten Werte für den PID-Regler in den vorhandenen Quellcode einzufügen und so ein funktionierendes System zu erlangen. Zusätzlich müssen wir die Werte für $MIDPOS$ und $DELTA$ berechnet werden und den Willkommenstext auf der LCD-Anzeige geändert werden. 
 
 \subsubsection{Verwendung von OCR3A}
-OCR3A ist das Timer Output Compare Register, ...\\
-\textcolor{red}{TODO}
+OCR3A ist das Timer Output Compare Register. Wenn der Zähler des timer clock cycle (Register $TCNT3$) den Wert des Registers $OCR3A$ erreicht, wird ein Interrupt erzeugt. \\
+Im Register $OCR3A$ ist die Pulslänge für die errechnete nächste anzusteuernde Position hinterlegt.\\
+\begin{equation}
+OCR3A = (unsigned\ int) (MIDPOS - (int)(beta \cdot DELTA))
+\end{equation}
+Zu Beginn des Versuchs wird die Pulsweite auf die Mittelposition ($MIDPOS=355$ entspricht einer Pulsweite von $1,5ms$) gesetzt, um die Fläche zu kalibrieren. (Näheres siehe "1.1.2 Berechnung von MIDPOS").
 
 \subsubsection{Berechnung von MIDPOS}
-Der richtige MIDPOS Wert gibt an, wann die Fläche vollkommen horizontal steht. Zur Berechnung von MIDPOS benutzten wir folgende Formel: \\
+Der richtige $MIDPOS$ Wert gibt an, wann die Fläche vollkommen horizontal steht. Zur Berechnung von MIDPOS benutzten wir folgende Formel: \\
 \begin{equation}
 MIDPOS  = Frequenz / Prescaler / 1000 \cdot Pulslaenge
 \end{equation}
@@ -75,4 +79,4 @@ Mit unseren aktualisierten PID-Werten ist es uns gelungen den Ball in weniger al
 \subsection{Fazit}
 Der Unterschied von der Simulation aus $Versuch\ 2$ zum tatsächlichen Modell in $Versuch\ 3$ ist sehr enorm. Allerdings haben wir ein kontinuierliches System modelliert und ein diskretes System im Modell vorgefunden. Alleine dieser Unterschied führt schon zu sehr unterschiedlichen Parametern des PID-Reglers. In der Simulation hätten wir dieses Problem erkennen und modellieren können. \\
 Die äußeren Einflüsse auf das Modell sind allerdings nur sehr schwer zu modellieren. Man sollte sich immer bewusst sein, dass eine Simulation nicht zu 100 Prozent dem Modell entspricht und es vermutlich immer Abweichungen geben wird. \\
-Nichtsdestotrotz hat uns die Versuchsreihe sehr viel Spass gemacht und es ist ein gutes Gefühl, wenn der Ball am Ende auf der gewünschten Position liegen bleit.
+Nichtsdestotrotz hat uns die Versuchsreihe sehr viel Spass gemacht und es ist ein gutes Gefühl, wenn der Ball am Ende auf der gewünschten Position liegen bleibt.
