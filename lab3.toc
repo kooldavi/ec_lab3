@@ -10,4 +10,4 @@
 \contentsline {subsubsection}{\numberline {1.1.7}Queues und Tasks}{5}
 \contentsline {subsubsection}{\numberline {1.1.8}Inter Task Kommunikation}{6}
 \contentsline {subsection}{\numberline {1.2}Ergebnis}{6}
-\contentsline {subsection}{\numberline {1.3}Fazit}{6}
+\contentsline {subsection}{\numberline {1.3}Fazit}{7}

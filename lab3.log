@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2016.11.23)  21 FEB 2017 14:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2016.11.23)  21 FEB 2017 14:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -530,6 +530,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 15--16
  []
 
 [2] [3]
+Overfull \hbox (4.37173pt too wide) in paragraph at lines 47--49
+\T1/cmr/m/n/12 Auÿerdem wer-den, wie oben be-reits ge-nannt, äu-ÿe-re Ein-flüs-
+se igno-riert (Rund-
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 51--71
 
  []
@@ -555,7 +561,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 51--71
 File: UML.png Graphic file (type png)
  <use UML.png>
 Package pdftex.def Info: UML.png used on input line 74.
-(pdftex.def)             Requested size: 325.51863pt x 269.50894pt.
+(pdftex.def)             Requested size: 434.01381pt x 359.33614pt.
+
+Overfull \hbox (44.01381pt too wide) in paragraph at lines 74--75
+[] 
+ []
+
 
 Underfull \hbox (badness 10000) in paragraph at lines 77--78
 
@@ -569,7 +580,7 @@ Here is how much of TeX's memory you used:
  6693 multiletter control sequences out of 15000+600000
  20389 words of font info for 54 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 38i,12n,43p,471b,228s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,12n,43p,473b,228s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/dschlosser/.texmf-var/fonts/pk/ljfo
 ur/jknappen/ec/ecrm1000.600pk> </home/dschlosser/.texmf-var/fonts/pk/ljfour/jkn
 appen/ec/ecrm0700.600pk> </home/dschlosser/.texmf-var/fonts/pk/ljfour/jknappen/
@@ -584,7 +595,7 @@ f-var/fonts/pk/ljfour/jknappen/ec/eccc2074.600pk></usr/share/texlive/texmf-dist
 /fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/
 public/amsfonts/cm/cmsy10.pfb>
-Output written on lab3.pdf (8 pages, 154494 bytes).
+Output written on lab3.pdf (8 pages, 154556 bytes).
 PDF statistics:
  345 PDF objects out of 1000 (max. 8388607)
  73 compressed objects within 1 object stream
