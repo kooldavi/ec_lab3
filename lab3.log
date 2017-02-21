@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2016.11.23)  21 FEB 2017 13:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2016.11.23)  21 FEB 2017 14:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -541,9 +541,9 @@ n-det die-se Pa-ra-me-ter an $\OML/cmm/m/it/12 QueueTaster$\T1/cmr/m/n/12 .
  []
 
 
-Overfull \hbox (2.66513pt too wide) in paragraph at lines 51--71
+Overfull \hbox (6.94078pt too wide) in paragraph at lines 51--71
 \T1/cmr/m/n/12 LCD dar-ge-stellt wer-den, über-prüft wel-cher Pa-ra-me-ter zur 
-Zeit in $\OML/cmm/m/it/12 Queuetaster$
+Zeit in $\OML/cmm/m/it/12 QueueTaster$
  []
 
 
@@ -551,38 +551,43 @@ Underfull \hbox (badness 10000) in paragraph at lines 51--71
 
  []
 
-[4] [5]
+[4] [5] <UML.png, id=35, 1085.05376pt x 898.35625pt>
+File: UML.png Graphic file (type png)
+ <use UML.png>
+Package pdftex.def Info: UML.png used on input line 74.
+(pdftex.def)             Requested size: 325.51863pt x 269.50894pt.
+
 Underfull \hbox (badness 10000) in paragraph at lines 77--78
 
  []
 
-) [6] (./lab3.aux) ) 
+) [6 <./UML.png>] [7] (./lab3.aux) ) 
 Here is how much of TeX's memory you used:
- 3566 strings out of 494968
- 44953 string characters out of 6178963
+ 3572 strings out of 494968
+ 45011 string characters out of 6178963
  111020 words of memory out of 5000000
- 6689 multiletter control sequences out of 15000+600000
+ 6693 multiletter control sequences out of 15000+600000
  20389 words of font info for 54 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  38i,12n,43p,471b,228s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/dschlosser/.texmf-var/fonts/pk/ljfour/jknappen/ec/e
-crm1000.600pk> </home/dschlosser/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm070
-0.600pk> </home/dschlosser/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0800.600p
-k> </home/dschlosser/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </h
-ome/dschlosser/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/ds
-chlosser/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1728.600pk> </home/dschloss
-er/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/dschlosser/.te
-xmf-var/fonts/pk/ljfour/jknappen/ec/eccc1200.600pk> </home/dschlosser/.texmf-va
-r/fonts/pk/ljfour/jknappen/ec/ecxc1728.600pk> </home/dschlosser/.texmf-var/font
-s/pk/ljfour/jknappen/ec/eccc1728.600pk> </home/dschlosser/.texmf-var/fonts/pk/l
-jfour/jknappen/ec/eccc2074.600pk></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmsy10.pfb>
-Output written on lab3.pdf (7 pages, 127255 bytes).
+ </home/dschlosser/.texmf-var/fonts/pk/ljfo
+ur/jknappen/ec/ecrm1000.600pk> </home/dschlosser/.texmf-var/fonts/pk/ljfour/jkn
+appen/ec/ecrm0700.600pk> </home/dschlosser/.texmf-var/fonts/pk/ljfour/jknappen/
+ec/ecrm0800.600pk> </home/dschlosser/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecb
+x1440.600pk> </home/dschlosser/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.
+600pk> </home/dschlosser/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1728.600pk>
+ </home/dschlosser/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </hom
+e/dschlosser/.texmf-var/fonts/pk/ljfour/jknappen/ec/eccc1200.600pk> </home/dsch
+losser/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecxc1728.600pk> </home/dschlosser
+/.texmf-var/fonts/pk/ljfour/jknappen/ec/eccc1728.600pk> </home/dschlosser/.texm
+f-var/fonts/pk/ljfour/jknappen/ec/eccc2074.600pk></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmsy10.pfb>
+Output written on lab3.pdf (8 pages, 154494 bytes).
 PDF statistics:
- 341 PDF objects out of 1000 (max. 8388607)
- 71 compressed objects within 1 object stream
+ 345 PDF objects out of 1000 (max. 8388607)
+ 73 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

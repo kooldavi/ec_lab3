@@ -16,7 +16,7 @@ Der richtige $MIDPOS$ Wert gibt an, wann die Fläche vollkommen horizontal steht
 \begin{equation}
 MIDPOS  = Frequenz / Prescaler / 1000 \cdot Pulslaenge
 \end{equation}
-Die Frequenz ist mit $16 Mhz$ gegeben. Der Prescaler-Wert ist im Register $TCCR3B$ auf den Wert $0b00000011$ gesetzt. Mit Hilfe des Datenblatts\footnote{http://www.atmel.com/Images/doc2467.pdf} kann diese Bitfolge auf den Wert $64$ dekodiert werden. Die Pulslänge der PWM für eine horizontaler Lage ist in der Aufgabenstellung erwähnt und liegt bei $1,5 ms$.\\
+Die Frequenz ist mit $16 MHz$ gegeben. Der Prescaler-Wert ist im Register $TCCR3B$ auf den Wert $0b00000011$ gesetzt. Mit Hilfe des Datenblatts\footnote{http://www.atmel.com/Images/doc2467.pdf} kann diese Bitfolge auf den Wert $64$ dekodiert werden. Die Pulslänge der PWM für eine horizontaler Lage ist in der Aufgabenstellung erwähnt und liegt bei $1,5 ms$.\\
 Das Ergebnis unserer Berechnung ergibt $MIDPOS = 375$. Allerdings ist die Fläche nach dem Setzen von $MIDPOS$ auf den errechneten Wert nicht vollständig horizontal. Der Wert muss auf $MIDPOS = 355$ angepasst werden, damit unser Modell in der Waage ist. \\ 
 Zu beachten ist, dass der Wert von $MIDPOS$ eventuell vor jeder Versuchsdurchführung neu angepasst werden muss, um zum Beispiel ein Schiefstehen des Tisches oder ähnliches auszugleichen.
 
@@ -63,15 +63,15 @@ Dieser Task kopiert Daten vom RAM zum LCD und positioniert den Cursor im Menü.\
 {\bfseries vTaster} \\
 $vTaster$ liest Input Daten an den Pins und sendet diese Parameter an $QueueTaster$.\\
 {\bfseries vHMI} \\
-Dieser Task steuert/verwaltet die Menüs und Funktionen, welche auf dem LCD dargestellt werden, überprüft welcher Parameter zur Zeit in $Queuetaster$ ist und verwendet diesen zur Menüsteuerung.\\
+Dieser Task steuert/verwaltet die Menüs und Funktionen, welche auf dem LCD dargestellt werden, überprüft welcher Parameter zur Zeit in $QueueTaster$ ist und verwendet diesen zur Menüsteuerung.\\
 {\bfseries vServo} \\
-Dieser Task berechnet den Vergleichswert des Servosignals und setzt diesen Wert auf den Port $OCR3A$. $vServo$ erhält den Wert $BETA$ der für die Berechnung benötigt wird aus $QueueServo$.\\
+Dieser Task berechnet den Vergleichswert des Servosignals und schreibt diesen Wert in das Register $OCR3A$. $vServo$ erhält den Wert $BETA$ der für die Berechnung benötigt wird aus $QueueServo$.\\
 {\bfseries vPID} \\
-Dieser Task holt sich die aktuelle Ballposition aus $QueueSensor$ und berechnet damit den aktuellen PID-Wert.\\
+Dieser Task holt sich die aktuelle Ballposition aus $QueueSensor$ und berechnet damit den aktuellen PID-Wert. Der berechnete Wert wird in $QueueServo$ abgelegt.\\
 
 
 \subsubsection{Inter Task Kommunikation}
-\textcolor{red}{TODO}
+\includegraphics[scale=0.3]{UML.png}
 
 \subsection{Ergebnis}
 Mit unseren aktualisierten PID-Werten ist es uns gelungen den Ball in weniger als zehn Sekunden an der gewünschten Stelle stehen bleiben zu lassen.\\
